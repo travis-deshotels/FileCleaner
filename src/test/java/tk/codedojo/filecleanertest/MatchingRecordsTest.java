@@ -1,14 +1,17 @@
 package tk.codedojo.filecleanertest;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Test;
 
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class FakeClass extends FileCleaner {
     @Override
@@ -25,7 +28,7 @@ public class MatchingRecordsTest {
             "mary\n" +
             "sue\n";
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() throws IOException {
         String fileContents =
                 "tom\n" +
@@ -45,7 +48,7 @@ public class MatchingRecordsTest {
         }
     }
 
-    @AfterClass
+    @AfterAll
     public static void cleanUp(){
         new File("myfile").delete();
         new File("myrecords").delete();

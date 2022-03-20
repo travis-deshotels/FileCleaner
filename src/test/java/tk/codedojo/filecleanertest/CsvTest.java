@@ -1,8 +1,8 @@
 package tk.codedojo.filecleanertest;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Test;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CsvCleaner extends FileCleaner {
     @Override
@@ -34,7 +34,7 @@ public class CsvTest {
             "line2,y\n" +
             "line3,w\n";
 
-    @BeforeClass
+    @BeforeAll
     public static void setup() throws IOException {
         String fileContents =
                 "line1,x\n" +
@@ -46,7 +46,7 @@ public class CsvTest {
         }
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDown(){
         new File("deletepls").delete();
         new File("deleteplspls").delete();
